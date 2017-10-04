@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{Cordts2016Cityscapes}
+M.~Cordts, M.~Omran, S.~Ramos, T.~Rehfeld, M.~Enzweiler, R.~Benenson,
+  U.~Franke, S.~Roth, and B.~Schiele.
+\newblock The cityscapes dataset for semantic urban scene understanding.
+\newblock In {\em Proc. of the IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2016.
+
+\bibitem{Long_2015_CVPR}
+J.~Long, E.~Shelhamer, and T.~Darrell.
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, June 2015.
+
+\end{thebibliography}

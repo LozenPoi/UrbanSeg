@@ -1,0 +1,56 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{farhadi2010every}
+A.~Farhadi, M.~Hejrati, M.~A. Sadeghi, P.~Young, C.~Rashtchian, J.~Hockenmaier,
+  and D.~Forsyth.
+\newblock Every picture tells a story: Generating sentences from images.
+\newblock In {\em European conference on computer vision}, pages 15--29.
+  Springer Berlin Heidelberg, 2010.
+
+\bibitem{resnet}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun.
+\newblock Deep residual learning for image recognition.
+\newblock {\em arXiv preprint arXiv:1512.03385}, 2015.
+
+\bibitem{karpathy2015deep}
+A.~Karpathy and L.~Fei-Fei.
+\newblock Deep visual-semantic alignments for generating image descriptions.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 3128--3137, 2015.
+
+\bibitem{mao2014deep}
+J.~Mao, W.~Xu, Y.~Yang, J.~Wang, Z.~Huang, and A.~Yuille.
+\newblock Deep captioning with multimodal recurrent neural networks (m-rnn).
+\newblock {\em arXiv preprint arXiv:1412.6632}, 2014.
+
+\bibitem{ordonez2011im2text}
+V.~Ordonez, G.~Kulkarni, and T.~L. Berg.
+\newblock Im2text: Describing images using 1 million captioned photographs.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  1143--1151, 2011.
+
+\bibitem{soo2002using}
+V.-W. Soo, C.-Y. Lee, J.~J. Yeh, and C.-c. Chen.
+\newblock Using sharable ontology to retrieve historical images.
+\newblock In {\em Proceedings of the 2nd ACM/IEEE-CS joint conference on
+  Digital libraries}, pages 197--198. ACM, 2002.
+
+\bibitem{stvilia2010member}
+B.~Stvilia and C.~J{\"o}rgensen.
+\newblock Member activities and quality of tags in a collection of historical
+  photographs in flickr.
+\newblock {\em Journal of the American Society for Information Science and
+  Technology}, 61(12):2477--2489, 2010.
+
+\bibitem{showandtell}
+O.~Vinyals, A.~Toshev, S.~Bengio, and D.~Erhan.
+\newblock Show and tell: A neural image caption generator.
+\newblock In {\em Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2015.
+
+\bibitem{yashimalearning}
+T.~Yashima, N.~Okazaki, K.~Inui, K.~Yamaguchi, and T.~Okatani.
+\newblock Learning to describe e-commerce images from noisy online data.
+\newblock In {\em Asian Conference on Computer Vision (ACCV)}, 2016.
+
+\end{thebibliography}
