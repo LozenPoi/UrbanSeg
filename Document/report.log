@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.27)  5 OCT 2017 09:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.27)  30 OCT 2017 15:19
 entering extended mode
 **./report.tex
 (report.tex
@@ -388,8 +388,8 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 86.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 6303 strings out of 493323
- 88319 string characters out of 3146850
+ 6304 strings out of 493323
+ 88328 string characters out of 3146850
  181152 words of memory out of 3000000
  9738 multiletter control sequences out of 15000+200000
  24286 words of font info for 61 fonts, out of 3000000 for 9000
@@ -399,9 +399,9 @@ Here is how much of TeX's memory you used:
 /cm/cmsy9.pfb><D:/miktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/miktex/fonts/ty
 pe1/urw/times/utmb8a.pfb><D:/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/miktex
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (2 pages, 4550503 bytes).
+Output written on report.pdf (2 pages, 4551389 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
+ 51 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
