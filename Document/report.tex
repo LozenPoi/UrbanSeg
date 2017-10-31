@@ -75,9 +75,10 @@ Since this project is going to play a role among the problems of autonomous driv
 
 %-------------------------------------------------------------------------
 \section{Model Structure}
-VGG-19 has an outstanding performance on many datasets such as ImageNet\cite{Cordts2016Cityscapes} for purposes of object recognition. Although casting VGG-19\cite{Cordts2016Cityscapes} to a fully convolutional network in the way described by \cite{Cordts2016Cityscapes} does hold the task for image segmentation.
+VGG-19 has an outstanding performance on many datasets such as ImageNet for purposes of object recognition. Although casting VGG-19 \cite{Simonyan14c} to a fully convolutional network in the way described by \cite{Long_2015_CVPR} does handle the task for image segmentation, the resolution is not good enough. Therefore, we cast VGG-19 to an FCN with deconvolutional networks (decoders) following the method described in \cite{badrinarayanan2015segnet2}.
 
 
+\section{Experiments}
 
 {\small
 \bibliographystyle{ieee}
