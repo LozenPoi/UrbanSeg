@@ -75,10 +75,34 @@ Since this project is going to play a role among the problems of autonomous driv
 
 %-------------------------------------------------------------------------
 \section{Model Structure}
-VGG-19 has an outstanding performance on many datasets such as ImageNet for purposes of object recognition. Although casting VGG-19 \cite{Simonyan14c} to a fully convolutional network in the way described by \cite{Long_2015_CVPR} does handle the task for image segmentation, the resolution is not good enough. Therefore, we cast VGG-19 to an FCN with deconvolutional networks (decoders) following the method described in \cite{badrinarayanan2015segnet2}.
+VGG-16 has an outstanding performance on many datasets such as ImageNet for purposes of object recognition. Although casting VGG-16 \cite{Simonyan14c} to a fully convolutional network in the way described by \cite{Long_2015_CVPR} does handle the task for image segmentation, the resolution of segmentation is not good enough even if the training input has high resolutions. Therefore, we cast VGG-16 to an FCN with deconvolutional networks (decoders) appended after convolutional layers by following the method described in \cite{badrinarayanan2015segnet2}.
 
+\subsection{Network Structure}
+First of all, we follow the structure of VGG-16 with batch normalization but simply discard the fully connected layers of it. Then, we append deconvolutional layers symmetrically to the convolutional layers, but with the output channel equal to the number of classes for the last layer. Therefore, the image input to the network is a tensor of size B$\times$C$\times$H$\times$W while the label (mask) input to it is a tensor of size B$\times$H$\times$W, where B, C, W, H stand for batch size, number of channels, image width, and image height respectively. The output of the network is a tensor of size B$\times$N$\times$H$\times$W where N stands for number of classes.
+
+\subsection{Loss Function}
+The loss function for this segmentation purpose is 2D cross-entropy loss. The idea is the same as the case of image classifications. Let P be the output (predictions) of the network of size N$\times$H$\times$W, and M of size H$\times$W be the ground-truth label of the segmented image; then the loss is defined as the following:
+\begin{center}
+	Loss = $\sum_{i=0}^{W}\sum_{j=0}^{H}logP(M_{j,i},j,i)$
+\end{center}
 
 \section{Experiments}
+When training the network defined above, we use 2975 fine-annotated images as the training set and the rest 500 fine-annotated images as the validation set. We have written a dataloader for CityScapes that can handle the whole fine-annotated dataset, including image transformations.
+
+\subsection{Dataset Modifications}
+As mentioned in \cite{Cordts2016Cityscapes}, only 19 classes frequently appear in those images, therefore the benchmark will only consider those 19 classes. In this project, we discard labels other than the 19 classes by setting those discarded labels to the same value 255. When doing segmentation, those classes will be considered as the same "unknown" class.
+
+Since the images in the dataset have high a resolution (2048$\times$1024), we resize them to 64$\times$32 in order to debug and testing the network on a local machine and observe some quick results. We will further train the network using images of 512$\times$256 resolution on AWS. When resizing the images, we use the default parameters of the scale function in $``$torchvision.transforms$"$. When resizing the masks (labels), we use nearest neighbors.
+
+\subsection{Current Issues}
+As shown in Figure 2, even though we have observed that both the training and validation losses go down while training the network, the segmentation result doesn't make any sense to us. In this example, we trained the neural network for 10 epochs while the loss doesn't decrease anymore. We are trying to figure out if the network structure has any issue, the training process is not proper, or the 2D cross-entropy loss is not correct. As long as this problem can be solved, we can finish up further experiments very quickly.
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.50\textwidth]{bad_result.PNG}
+	\caption{Here is a bad sample segmentation result of the trained neural network. The top is the original image. The second is the ground-truth label. The third (matrix) is the class predictions for each pixel on the original image. The bottom is the visualized class predictions.}
+	\label{fig:leadfigure}
+\end{figure}
 
 {\small
 \bibliographystyle{ieee}
