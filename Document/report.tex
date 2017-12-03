@@ -92,21 +92,23 @@ The loss function for this segmentation purpose is 2D cross-entropy loss. The id
 With this loss function, we use Adam to train the network model for 10 epochs.
 
 \section{Experiments}
-When training the network defined above, we use about 3225 fine-annotated images as the training set and the rest about 250 fine-annotated images as the validation set. We have written a dataloader for CityScapes that can handle the whole fine-annotated dataset, including image transformations. There are also a fine-annotated test set but the ground-truth labels are only available on the server of Cityscapes website. Therefore, this test set is not used for our experiments.
+When training the network defined above, we use about 3100 fine-annotated images as the training set and the rest about 100~200 fine-annotated images as the validation set. We have written a dataloader for CityScapes that can handle the whole fine-annotated dataset, including image transformations. There are also a fine-annotated test set but the ground-truth labels are only available on the server of Cityscapes website. Therefore, this test set is not used for our experiments.
 
-The experiments break down into two main parts which will be described in this section. The first part is to train the network on a set of cities and validate it on another city that is exactly not included in the training set. The second part is to train a network among all of cities and validate it on the same set of cities, where training set and validation set are always mutual exclusive. The purpose of this experimental design is to explorer the adaptivity of neural networks with different prior knowledge.
+The experiments break down into two main parts which will be described in this section. The first part is to train the network on a set of cities and validate it on another city that is exactly not included in the training set. The second part is to train a network among all of cities and validate it on the same set of cities, where training set and validation set are always mutual exclusive. The purpose of this experimental design is to explorer the adaptivity of neural networks with different prior knowledge. The details of dataset content are shown in Table 1.
 
-The set of cities and their countries in the fine-annotated dataset are shown in the table 1.
-
+\begin{table}[h]
 \begin{center}
-	\begin{tabular}{ | l | r | }
+	\begin{tabular}{ | l | p{4.6cm} | }
 		\hline
-		1 & 2\\ \hline \hline
-		4 & 5\\ \hline
-		7 & 8\\
+		Germany & Aachen(174) Bochum(96) Bremen(316) Cologne(154)
+		Darmstadt(85) Dusseldorf(221) Erfurt(109) Frankfurt(267) Hamburg(248) Hnaover(196) Jena(119) Krefeld(99) Lindau(59) Monchengladbach(94) Munster(174) Stuttgart(196) Tubingen(144) Ulm(95) Weimar(142)\\ \hline
+		France & Strasbourg(365)\\ \hline
+		Switzerland & Zurich(122)\\
 		\hline
 	\end{tabular}
 \end{center}
+\caption{The set of cities, their countries, and the number of corresponding images in the fine-annotated dataset.} \label{tab:table1}
+\end{table}
 
 \subsection{Dataset Modifications}
 As mentioned in \cite{Cordts2016Cityscapes}, only 19 classes frequently appear in those images, therefore the benchmark will only consider those 19 classes to avoid ambiguity. In this project, we discard labels other than the 19 classes by setting those discarded labels to the same value 255. When doing segmentation, those classes will be considered as the same "unknown" class.
