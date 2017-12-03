@@ -25,7 +25,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{Semantic Segmentation of Urban Scenes using Fully Convolutional Networks}
+\title{Semantic Segmentation of Urban Scenes using Encoder-Decoder Architecture}
 
 \author{Zheng Luo\\
 Department of Computer Science\\
@@ -75,10 +75,10 @@ Since this project is going to play a role among the problems of autonomous driv
 
 %-------------------------------------------------------------------------
 \section{Model Structure}
-VGG-16 has an outstanding performance on many datasets such as ImageNet for purposes of object recognition. Although casting VGG-16 \cite{Simonyan14c} to a fully convolutional network in the way described by \cite{Long_2015_CVPR} does handle the task for image segmentation, the resolution of segmentation is not good enough even if the training input has high resolutions. Therefore, we cast VGG-16 to an FCN with combinations of upsampling (unpooling) and convolutional layers (decoders) appended after convolutional layers by following the method described in \cite{badrinarayanan2015segnet2}.
+VGG-16 \cite{Simonyan14c} has an outstanding performance on many datasets such as ImageNet for purposes of object recognition. Although casting VGG-16 to a fully convolutional network in the way described by \cite{Long_2015_CVPR} does handle the task for image segmentation, the resolution of segmentation is not good enough even if the training input has high resolutions. Therefore, we cast VGG-16 to an FCN with combinations of upsampling (unpooling) and convolutional layers (decoders) appended after convolutional layers, by following the method described in \cite{badrinarayanan2015segnet2}. This architecture is named SegNet which contains an encoder followed by a decoder. Intuitively, we can consider the encoder part is responsible for feature extraction while the decoder handles the task of transforming deep features to RGB space.
 
 \subsection{Network Structure}
-First of all, we follow the structure of VGG-16 with batch normalization but simply discard the fully connected layers of it. Then, we append a set of unpooling and convolutional layers symmetrically to the convolutional layers, but with the output channel equal to the number of classes for the last layer. At the end of the network, we add a softmax function to produce class predictions for each pixel in the input image. That is, for each pixel, the network will give a probability distribution telling the likelihood of belonging to each class. This is an analog to the case of image classification, but is actually performing pixel-wise classifications.
+First of all, we follow the structure of VGG-16 with batch normalization \cite{ioffe2015batch} but simply discard the fully connected layers of it. Then, we append a set of unpooling and convolutional layers with batch normalization symmetrically to the encoder part, but with the output channel equal to the number of classes for the last layer. At the end of the network, we add a softmax function to produce class predictions for each pixel in the input image. That is, for each pixel, the network will give a probability distribution telling the likelihood of belonging to each class. This is an analog to the case of image classification, but is actually performing pixel-wise classifications. The detailed structure is not showing here since this design closely follow the architecture introduced in \cite{badrinarayanan2015segnet2}.
 
 In addition, we also add $``$links$"$ between each corresponding pooling and unpooling layers. This means the unpooling layers are deterministic with respect to max-pooling layers. When data goes through pooling layers, we record the indices of preserved pixels (or tensor elements). When doing unpooling, we place tensor elements back to the same places according to the previously recorded indices.
 
@@ -89,7 +89,37 @@ The loss function for this segmentation purpose is 2D cross-entropy loss. The id
 \begin{center}
 	Loss = $-\sum_{i=0}^{W}\sum_{j=0}^{H}logP(M(j,i),j,i)$.
 \end{center}
-With this loss function, we use Adam to train the network model.
+With this loss function, we use Adam to train the network model for 10 epochs.
+
+\section{Experiments}
+When training the network defined above, we use about 3225 fine-annotated images as the training set and the rest about 250 fine-annotated images as the validation set. We have written a dataloader for CityScapes that can handle the whole fine-annotated dataset, including image transformations. There are also a fine-annotated test set but the ground-truth labels are only available on the server of Cityscapes website. Therefore, this test set is not used for our experiments.
+
+The experiments break down into two main parts which will be described in this section. The first part is to train the network on a set of cities and validate it on another city that is exactly not included in the training set. The second part is to train a network among all of cities and validate it on the same set of cities, where training set and validation set are always mutual exclusive. The purpose of this experimental design is to explorer the adaptivity of neural networks with different prior knowledge.
+
+The set of cities and their countries in the fine-annotated dataset are shown in the table 1.
+
+\begin{center}
+	\begin{tabular}{ | l | r | }
+		\hline
+		1 & 2\\ \hline \hline
+		4 & 5\\ \hline
+		7 & 8\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{Dataset Modifications}
+As mentioned in \cite{Cordts2016Cityscapes}, only 19 classes frequently appear in those images, therefore the benchmark will only consider those 19 classes to avoid ambiguity. In this project, we discard labels other than the 19 classes by setting those discarded labels to the same value 255. When doing segmentation, those classes will be considered as the same "unknown" class.
+
+Since the images in the dataset have a high resolution (2048$\times$1024), we resize them to 256$\times$128 in order to save time and graphic memories. When resizing the images, we use the default bicubic method. When resizing the masks (labels), we use nearest neighbors.
+
+\subsection{Training on All Cities}
+
+\subsection{Training without Frankfurt}
+
+\section{Future Work}
+
+\section{Conclusion}
 
 \begin{figure}[t]
 	\centering
@@ -97,14 +127,6 @@ With this loss function, we use Adam to train the network model.
 	\caption{Here is a bad sample segmentation result of the trained neural network. The top is the original image. The second is the ground-truth label. The third (matrix) is the class predictions for each pixel on the original image. The bottom is the visualized class predictions.}
 	\label{fig:leadfigure}
 \end{figure}
-
-\section{Experiments}
-When training the network defined above, we use 3225 fine-annotated images as the training set and the rest 250 fine-annotated images as the validation set. There are also a test set available but the ground-truth labels are only available on the server of Cityscapes website. We have written a dataloader for CityScapes that can handle the whole fine-annotated dataset, including image transformations.
-
-\subsection{Dataset Modifications}
-As mentioned in \cite{Cordts2016Cityscapes}, only 19 classes frequently appear in those images, therefore the benchmark will only consider those 19 classes to avoid ambiguity. In this project, we discard labels other than the 19 classes by setting those discarded labels to the same value 255. When doing segmentation, those classes will be considered as the same "unknown" class.
-
-Since the images in the dataset have a high resolution (2048$\times$1024), we resize them to 256$\times$128 in order to save time and graphic memories. When resizing the images, we use the default bicubic method. When resizing the masks (labels), we use nearest neighbors.
 
 
 {\small

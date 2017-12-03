@@ -13,6 +13,13 @@ M.~Cordts, M.~Omran, S.~Ramos, T.~Rehfeld, M.~Enzweiler, R.~Benenson,
 \newblock In {\em Proc. of the IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, 2016.
 
+\bibitem{ioffe2015batch}
+S.~Ioffe and C.~Szegedy.
+\newblock Batch normalization: Accelerating deep network training by reducing
+  internal covariate shift.
+\newblock In {\em International Conference on Machine Learning}, pages
+  448--456, 2015.
+
 \bibitem{Long_2015_CVPR}
 J.~Long, E.~Shelhamer, and T.~Darrell.
 \newblock Fully convolutional networks for semantic segmentation.
