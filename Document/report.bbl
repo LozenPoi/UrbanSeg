@@ -13,6 +13,12 @@ M.~Cordts, M.~Omran, S.~Ramos, T.~Rehfeld, M.~Enzweiler, R.~Benenson,
 \newblock In {\em Proc. of the IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, 2016.
 
+\bibitem{everingham2015pascal}
+M.~Everingham, S.~A. Eslami, L.~Van~Gool, C.~K. Williams, J.~Winn, and
+  A.~Zisserman.
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock {\em International journal of computer vision}, 111(1):98--136, 2015.
+
 \bibitem{ioffe2015batch}
 S.~Ioffe and C.~Szegedy.
 \newblock Batch normalization: Accelerating deep network training by reducing

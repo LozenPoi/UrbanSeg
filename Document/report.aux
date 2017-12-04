@@ -27,24 +27,40 @@
 \citation{badrinarayanan2015segnet2}
 \citation{ioffe2015batch}
 \citation{badrinarayanan2015segnet2}
+\citation{badrinarayanan2015segnet2}
 \citation{Cordts2016Cityscapes}
 \@writefile{toc}{\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace  {}Model Structure}{2}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace  {}Network Structure}{2}{subsection.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Here is the encoder-decoder architecture used for this pixel-level semantic labeling/segmentation task. It is introduced in \cite  {badrinarayanan2015segnet2} and named as SegNet. The architecture uses un-pooling instead of de-convolutional layers for tensor up-scaling.}}{2}{figure.2}}
+\newlabel{fig:model}{{2}{2}{Here is the encoder-decoder architecture used for this pixel-level semantic labeling/segmentation task. It is introduced in \cite {badrinarayanan2015segnet2} and named as SegNet. The architecture uses un-pooling instead of de-convolutional layers for tensor up-scaling}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}\hskip -1em.\nobreakspace  {}Loss Function}{2}{subsection.3.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace  {}Experiments}{2}{section.4}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The set of cities, their countries, and the number of corresponding images in the fine-annotated dataset.}}{2}{table.1}}
-\newlabel{tab:table1}{{1}{2}{The set of cities, their countries, and the number of corresponding images in the fine-annotated dataset}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}\hskip -1em.\nobreakspace  {}Dataset Modifications}{2}{subsection.4.1}}
+\citation{everingham2015pascal}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The set of cities, their countries, and the number of corresponding images available in the fine-annotated dataset.}}{3}{table.1}}
+\newlabel{tab:table1}{{1}{3}{The set of cities, their countries, and the number of corresponding images available in the fine-annotated dataset}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace  {}Training on All Cities}{3}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace  {}Training without Strasbourg}{3}{subsection.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace  {}Training without Zurich}{3}{subsection.4.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace  {}Results Comparison}{3}{subsection.4.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result.}}{3}{figure.3}}
+\newlabel{fig:figure2}{{3}{3}{Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result.}}{3}{figure.4}}
+\newlabel{fig:figure3}{{4}{3}{Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result.}}{3}{figure.5}}
+\newlabel{fig:figure4}{{5}{3}{Top left: input image; top right: ground truth; bottom left: training curve; bottom right: segmentation result}{figure.5}{}}
 \bibstyle{ieee}
 \bibdata{egbib}
 \bibcite{badrinarayanan2015segnet2}{1}
 \bibcite{Cordts2016Cityscapes}{2}
-\bibcite{ioffe2015batch}{3}
-\bibcite{Long_2015_CVPR}{4}
-\bibcite{Simonyan14c}{5}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Here is a bad sample segmentation result of the trained neural network. The top is the original image. The second is the ground-truth label. The third (matrix) is the class predictions for each pixel on the original image. The bottom is the visualized class predictions.}}{3}{figure.2}}
-\newlabel{fig:leadfigure}{{2}{3}{Here is a bad sample segmentation result of the trained neural network. The top is the original image. The second is the ground-truth label. The third (matrix) is the class predictions for each pixel on the original image. The bottom is the visualized class predictions}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace  {}Training on All Cities}{3}{subsection.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace  {}Training without Frankfurt}{3}{subsection.4.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace  {}Future Work}{3}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace  {}Conclusion}{3}{section.6}}
+\bibcite{everingham2015pascal}{3}
+\bibcite{ioffe2015batch}{4}
+\bibcite{Long_2015_CVPR}{5}
+\bibcite{Simonyan14c}{6}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The left column indicates the models and validation sets corresponding to Section 4.2, 4.3, and 4.4; the right column shows the mean IoU values from their validation.}}{4}{table.2}}
+\newlabel{tab:table2}{{2}{4}{The left column indicates the models and validation sets corresponding to Section 4.2, 4.3, and 4.4; the right column shows the mean IoU values from their validation}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace  {}Conclusion and Future Work}{4}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace  {}Unbalanced and Limited Dataset Size}{4}{subsection.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace  {}Data Augmentation}{4}{subsection.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Top: input image; middle: ground truth; bottom: segmentation result. We use the network trained with images of size 128$\times $256, and test it on an image of size 256$\times $512. Compared to Figure 5 where the same input image is used but with size 128$\times $256, the output here looks much worse. Therefore, at least for SegNet, performance is influenced by input down-sampling.}}{4}{figure.6}}
+\newlabel{fig:figure5}{{6}{4}{Top: input image; middle: ground truth; bottom: segmentation result. We use the network trained with images of size 128$\times $256, and test it on an image of size 256$\times $512. Compared to Figure 5 where the same input image is used but with size 128$\times $256, the output here looks much worse. Therefore, at least for SegNet, performance is influenced by input down-sampling}{figure.6}{}}
